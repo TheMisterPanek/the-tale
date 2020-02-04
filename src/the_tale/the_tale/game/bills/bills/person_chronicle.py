@@ -8,7 +8,7 @@ class BaseForm(forms.BaseUserForm):
     person = utils_fields.ChoiceField(label='Мастер')
 
     def __init__(self, choosen_person_id, *args, **kwargs):
-        super(BaseForm, self).__init__(*args, **kwargs)
+        super().__init__(*args, **kwargs)
         self.fields['person'].choices = persons_objects.Person.form_choices(choosen_person=persons_storage.persons.get(choosen_person_id))
 
 
@@ -27,10 +27,10 @@ class PersonChronicle(base_person_bill.BasePersonBill):
     ModeratorForm = ModeratorForm
 
     CAPTION = 'Запись в летописи о Мастере'
-    DESCRIPTION = 'Занести в летопись интересное событие, произошедшее с Мастером.'
+    DESCRIPTION = 'Занести в летопись интересное событие, произошедшее с Мастером. Если длина текста меньше 500 символов, к записи необходимо прикрепить фольклорный рассказ, раскрывающий тему. Для одного рассказа можно создать только одну запись.'
 
     def __init__(self, power_bonus=None, **kwargs):
-        super(PersonChronicle, self).__init__(**kwargs)
+        super().__init__(**kwargs)
         self.power_bonus = power_bonus
 
     def has_meaning(self):

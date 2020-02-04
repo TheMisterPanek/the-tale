@@ -15,7 +15,9 @@ class PersonChronicleTests(helpers.BaseTestPrototypes):
         self.person1 = sorted(self.place1.persons, key=lambda person: -politic_power_storage.persons.total_power_fraction(person.id))[0]
         self.person2 = sorted(self.place2.persons, key=lambda person: -politic_power_storage.persons.total_power_fraction(person.id))[-1]
 
-        self.bill_data = bills.person_chronicle.PersonChronicle(person_id=self.person1.id, old_place_name_forms=self.place1.utg_name, power_bonus=relations.POWER_BONUS_CHANGES.UP)
+        self.bill_data = bills.person_chronicle.PersonChronicle(person_id=self.person1.id,
+                                                                old_place_name_forms=self.place1.utg_name,
+                                                                power_bonus=relations.POWER_BONUS_CHANGES.UP)
         self.bill = prototypes.BillPrototype.create(self.account1, 'bill-1-caption', self.bill_data, chronicle_on_accepted='chronicle-on-accepted')
 
     def test_create(self):

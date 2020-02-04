@@ -27,7 +27,7 @@ class PlaceChronicle(base_place_bill.BasePlaceBill):
     ModeratorForm = ModeratorForm
 
     CAPTION = 'Запись в летописи о городе'
-    DESCRIPTION = 'Занести в летопись интересное событие, произошедшее в городе.'
+    DESCRIPTION = 'Занести в летопись интересное событие, произошедшее в городе. Если длина текста меньше 500 символов, к записи необходимо прикрепить фольклорный рассказ, раскрывающий тему. Для одного рассказа можно создать только одну запись.'
 
     def __init__(self, power_bonus=None, **kwargs):
         super(PlaceChronicle, self).__init__(**kwargs)
